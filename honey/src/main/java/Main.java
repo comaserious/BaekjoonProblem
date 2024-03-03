@@ -14,19 +14,16 @@ public class Main {
         int N = Integer.parseInt(s.nextToken());
         int B = Integer.parseInt(s.nextToken());
 
-        int index = 0 ;
+        int index = 1 ;
 
         while(N > (int)Math.pow(B,index)){
-            index++;
+            ++index;
         }
         int num ;
 
         StringBuilder result = new StringBuilder();
 
-        if(index == 0){
-            result.append(N);
-        }
-        else {
+
             for (int i = 0; i < index; i++) {
                 num = N / (int) Math.pow(B, index - 1 - i);
                 if (num >= 10) {
@@ -36,7 +33,7 @@ public class Main {
                 }
                 N = N % (int) Math.pow(B, index - 1 - i);
             }
-        }
+
 
 
         System.out.println(result);
