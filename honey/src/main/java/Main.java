@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -14,40 +12,35 @@ public class Main {
         StringTokenizer s = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(s.nextToken());
-        int n = s.nextToken().charAt(0);
+        int B = Integer.parseInt(s.nextToken());
 
-        if(n>='A'){
-            n = n-'A'+10;
+        int index = 0 ;
+
+        while(N > (int)Math.pow(B,index)){
+            index++;
         }
+        int num ;
 
-        int upper =0 ;
+        StringBuilder result = new StringBuilder();
 
-        while(N> (int)Math.pow(n,upper)){
-            ++upper;
+        if(index == 0){
+            result.append(N);
         }
-        List<Integer> count = new ArrayList<>();
-
-        for(int i =upper-1;i>=0;i--){
-            count.add(N/(int)Math.pow(n,i));
-            N=N%(int)Math.pow(n,i);
-        }
-
-        char c;
-        String result;
-        for(int i = 0 ; i<upper;i++){
-
-        if(n>=10){
-            n = n-10+'A';
-            if(count.get(i)>=10){
-                c =(char)(count.get(i)-10+'A');
+        else {
+            for (int i = 0; i < index; i++) {
+                num = N / (int) Math.pow(B, index - 1 - i);
+                if (num >= 10) {
+                    result.append((char) (num - 10 + 'A'));
+                } else {
+                    result.append(num);
+                }
+                N = N % (int) Math.pow(B, index - 1 - i);
             }
-            String.valueOf(count.get(i)).concat(String.valueOf(n)) ;
-
         }
 
 
+        System.out.println(result);
 
-        }
 
 
     }
