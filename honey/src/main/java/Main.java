@@ -24,14 +24,14 @@ public class Main {
         StringBuilder result = new StringBuilder();
 
 
-            for (int i = 0; i < index; i++) {
-                num = N / (int) Math.pow(B, index - 1 - i);
+            for (int i = index-1; i >=0; i--) {
+                num = N / (int) Math.pow(B, i);
                 if (num >= 10) {
                     result.append((char) (num - 10 + 'A'));
                 } else {
                     result.append(num);
                 }
-                N = N % (int) Math.pow(B, index - 1 - i);
+                N = N % (int) Math.pow(B, i);
             }
 
 
