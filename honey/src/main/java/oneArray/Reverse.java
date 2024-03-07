@@ -20,13 +20,16 @@ public class Reverse {
             box = box+i;
         }
 
+
+
         for(int t = 0; t < M ;t++){
+
             StringBuilder rebox = new StringBuilder();
             StringTokenizer st1 = new StringTokenizer(br.readLine());
             int i = Integer.parseInt(st1.nextToken())-1;
             int j = Integer.parseInt(st1.nextToken());
             rebox.append(box.substring(i,j));
-            box=box.replace(rebox,rebox.reverse());
+            box=box.replace(String.valueOf(rebox),String.valueOf(rebox.reverse()));
 
         }
         for(int i =0 ; i<box.length();i++){
