@@ -7,7 +7,19 @@ public class PlusRepeatFaster {
 
     public static void main(String[] args) throws IOException {
 
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+            int T = Integer.parseInt(br.readLine());
+            String sum;
+            for(int i = 0 ; i < T ; i++){
+                StringTokenizer st = new StringTokenizer(br.readLine());
+                sum = String.valueOf(Integer.parseInt(st.nextToken())+Integer.parseInt(st.nextToken()));
+
+                bw.write(sum);
+                bw.write("\n");
+
+            }bw.flush();
 
 
 

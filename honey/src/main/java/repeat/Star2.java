@@ -1,8 +1,6 @@
 package repeat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 
 public class Star2 {
@@ -10,18 +8,21 @@ public class Star2 {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int N= Integer.parseInt(br.readLine());
-
+        String empty ="";
         for(int i = 0 ; i<N ; i++){
 
-            for(int j = 0 ; j<N-i;j++){
-                System.out.print(" ");
+            for(int j = 1 ; j<N-i;j++){
+                empty+=" ";
             }
             for(int k =0; k<i+1;k++){
-                System.out.print("*");
+                empty +="*";
             }
-        System.out.println();
+            bw.write(empty+"\n");
+            bw.flush();
+            empty="";
+
         }
 
     }
